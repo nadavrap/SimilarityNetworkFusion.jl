@@ -1,0 +1,34 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Documentation for SNFtool.jl package\n\n\nThis is an implementation of the Similarity Networks Fusion (SNF) method published by Wang et. al. in Nature Methods 2014\n\n\n\n\nScheme\n\n\nMore text\n\n\n\n\nTutorials\n\n\n\n\nAnother Section\n\n\n\n\nIndex", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/#documentation-for-snftooljl-package", 
+            "text": "This is an implementation of the Similarity Networks Fusion (SNF) method published by Wang et. al. in Nature Methods 2014", 
+            "title": "Documentation for SNFtool.jl package"
+        }, 
+        {
+            "location": "/#scheme", 
+            "text": "More text", 
+            "title": "Scheme"
+        }, 
+        {
+            "location": "/#tutorials", 
+            "text": "", 
+            "title": "Tutorials"
+        }, 
+        {
+            "location": "/#another-section", 
+            "text": "", 
+            "title": "Another Section"
+        }, 
+        {
+            "location": "/#index", 
+            "text": "", 
+            "title": "Index"
+        }
+    ]
+}

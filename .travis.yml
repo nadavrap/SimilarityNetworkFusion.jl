@@ -27,8 +27,12 @@ git:
 
 ## uncomment the following lines to override the default test script
 #script:
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("SNFtool"); Pkg.test("SNFtool"; coverage=true)'
+#  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone(pwd())'
+  - julia -e 'Pkg.test("SNFtool",coverage=true)'
 after_success:
+  - julia -e julia -e 'Pkg.add("Documenter")'
+  - julia -e 'cd(Pkg.dir("SNFtool")); include(joinpath("docs", "make.jl"))'
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("SNFtool")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
