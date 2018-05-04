@@ -5,6 +5,7 @@ the implementation provided by the authors in R and translated it to Julia.
 
 # Tutorials
 * [Simulation1](docs/build/tutorials/Simulation1.md)
+* [GBM](docs/build/tutorials/GBM.md)
 
 # References
 1. B Wang, A Mezlini, F Demir, M Fiume, T Zu, M Brudno, B Haibe-Kains, A Goldenberg (2014) Similarity Network Fusion: a fast and effective method to aggregate multiple data types on a genome wide scale. Nature Methods. Online. Jan 26, 2014  
