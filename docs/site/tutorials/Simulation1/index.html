@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Nadav Rappoport">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Title 1 - SNFtool</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../assets/Documenter.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Title 1";
+    var mkdocs_page_input_path = "tutorials/Simulation1.md";
+    var mkdocs_page_url = "/tutorials/Simulation1/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SNFtool</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorial</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Title 1</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#snftool-simulation-tutorial">SNFtool Simulation tutorial</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#install-the-package">Install the package</a></li>
+        
+            <li><a class="toctree-l4" href="#first-set-all-the-parameters">First, set all the parameters:</a></li>
+        
+            <li><a class="toctree-l4" href="#data1-is-of-size-n-x-d_1-where-n-is-the-number-of-patients-d_1-is-the-number-of-genes-eg">Data1 is of size n x d_1, where n is the number of patients, d_1 is the number of genes, e.g.</a></li>
+        
+            <li><a class="toctree-l4" href="#data2-is-of-size-n-x-d_2-where-n-is-the-number-of-patients-d_2-is-the-number-of-methylation-eg">Data2 is of size n x d_2, where n is the number of patients, d_2 is the number of methylation, e.g.</a></li>
+        
+            <li><a class="toctree-l4" href="#here-the-simulation-data-data1-data2-has-two-data-types-they-are-complementary-to-each-other-and-two-data-types-have-the-same-number-of-points-the-first-half-data-belongs-to-the-first-cluster-the-rest-belongs-to-the-second-cluster">Here, the simulation data (Data1, Data2) has two data types. They are complementary to each other. And two data types have the same number of points. The first half data belongs to the first cluster; the rest belongs to the second cluster.</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#the-ground-truth-of-the-simulated-data">The ground truth of the simulated data`</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#calculate-distance-matriceshere-we-calculate-euclidean-distance-you-can-use-other-distance-egcorrelation">Calculate distance matrices(here we calculate Euclidean Distance, you can use other distance, e.g,correlation)</a></li>
+        
+            <li><a class="toctree-l4" href="#if-the-data-are-all-continuous-values-we-recommend-the-users-to-perform-standard-normalization-before-using-snf-though-it-is-optional-depending-on-the-data-the-users-want-to-use">If the data are all continuous values, we recommend the users to perform standard normalization before using SNF, though it is optional depending on the data the users want to use.</a></li>
+        
+            <li><a class="toctree-l4" href="#calculate-the-pair-wise-distance-if-the-data-is-continuous-we-recommend-to-use-the-function-dist2-as-follows-if-the-data-is-discrete-we-recommend-the-users-to-use">Calculate the pair-wise distance; If the data is continuous, we recommend to use the function "dist2" as follows; if the data is discrete, we recommend the users to use ???""</a></li>
+        
+            <li><a class="toctree-l4" href="#next-construct-similarity-graphs">next, construct similarity graphs</a></li>
+        
+            <li><a class="toctree-l4" href="#these-similarity-graphs-have-complementary-information-about-clusters">These similarity graphs have complementary information about clusters.</a></li>
+        
+            <li><a class="toctree-l4" href="#next-we-fuse-all-the-graphs">next, we fuse all the graphs</a></li>
+        
+            <li><a class="toctree-l4" href="#then-the-overall-matrix-can-be-computed-by-similarity-network-fusionsnf">then the overall matrix can be computed by similarity network fusion(SNF):</a></li>
+        
+            <li><a class="toctree-l4" href="#with-this-unified-graph-w-of-size-n-x-n-you-can-do-either-spectral-clustering-or-kernel-nmf-if-you-need-help-with-further-clustering-please-let-us-know">With this unified graph W of size n x n, you can do either spectral clustering or Kernel NMF. If you need help with further clustering, please let us know.</a></li>
+        
+            <li><a class="toctree-l4" href="#for-example-spectral-clustering">for example, spectral clustering</a></li>
+        
+            <li><a class="toctree-l4" href="#you-can-evaluate-the-goodness-of-the-obtained-clustering-results-by-calculate-normalized-mutual-information-nmi-if-nmi-is-close-to-1-it-indicates-that-the-obtained-clustering-is-very-close-to-the-true-cluster-information-if-nmi-is-close-to-0-it-indicates-the-obtained-clustering-is-not-similar-to-the-true-cluster-information">you can evaluate the goodness of the obtained clustering results by calculate Normalized mutual information (NMI): if NMI is close to 1, it indicates that the obtained clustering is very close to the "true" cluster information; if NMI is close to 0, it indicates the obtained clustering is not similar to the "true" cluster information.</a></li>
+        
+            <li><a class="toctree-l4" href="#you-can-also-find-the-concordance-between-each-individual-network-and-the-fused-network">you can also find the concordance between each individual network and the fused network</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#concordancematrix-concordancenetworknmilistw-w1w2">ConcordanceMatrix = concordanceNetworkNMI(list(W, W1,W2));</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SNFtool</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tutorial &raquo;</li>
+        
+      
+    
+    <li>Title 1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/nadavrap/SNFtool.jl/edit/master/docs/tutorials/Simulation1.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="snftool-simulation-tutorial">SNFtool Simulation tutorial</h1>
+<p>Here we will go through an example for running SNFtool on a simulated data.
+ The data was generated by paper's authors and the details appears in the
+ supplementary data, look for the second simulation. In short, there are two
+ data sets representing 200 samples from two classes. In the first data set
+ the first class have a Normal noise added, and the second class a Gamma
+ distributed noise. In the second data set the opposite.</p>
+<p>This tutorial was adopted from the Readme of the SNFtool R package on github:
+ https://github.com/cran/SNFtool</p>
+<p>```julia</p>
+<h2 id="install-the-package">Install the package</h2>
+<p>Pkg.add("SNFtool")
+using SNFtool</p>
+<h2 id="first-set-all-the-parameters">First, set all the parameters:</h2>
+<p>K = 20;     # number of neighbors, usually (10~30)
+alpha = 0.5;    # hyperparameter, usually (0.3~0.8)
+T = 10;     # Number of Iterations, usually (10~20)</p>
+<h2 id="data1-is-of-size-n-x-d_1-where-n-is-the-number-of-patients-d_1-is-the-number-of-genes-eg">Data1 is of size n x d_1, where n is the number of patients, d_1 is the number of genes, e.g.</h2>
+<h2 id="data2-is-of-size-n-x-d_2-where-n-is-the-number-of-patients-d_2-is-the-number-of-methylation-eg">Data2 is of size n x d_2, where n is the number of patients, d_2 is the number of methylation, e.g.</h2>
+<p>Data1, Data2 = dataset("Simulation1")</p>
+<h2 id="here-the-simulation-data-data1-data2-has-two-data-types-they-are-complementary-to-each-other-and-two-data-types-have-the-same-number-of-points-the-first-half-data-belongs-to-the-first-cluster-the-rest-belongs-to-the-second-cluster">Here, the simulation data (Data1, Data2) has two data types. They are complementary to each other. And two data types have the same number of points. The first half data belongs to the first cluster; the rest belongs to the second cluster.</h2>
+<h1 id="the-ground-truth-of-the-simulated-data">The ground truth of the simulated data`</h1>
+<p>truelabels = vcat(repeat([1]; outer=[100]),
+                  repeat([2]; outer=[100]));</p>
+<h2 id="calculate-distance-matriceshere-we-calculate-euclidean-distance-you-can-use-other-distance-egcorrelation">Calculate distance matrices(here we calculate Euclidean Distance, you can use other distance, e.g,correlation)</h2>
+<h2 id="if-the-data-are-all-continuous-values-we-recommend-the-users-to-perform-standard-normalization-before-using-snf-though-it-is-optional-depending-on-the-data-the-users-want-to-use">If the data are all continuous values, we recommend the users to perform standard normalization before using SNF, though it is optional depending on the data the users want to use.</h2>
+<p>Data1 = sapply_df(Data1,standardize)
+Data2 = sapply_df(Data2,standardize)</p>
+<h2 id="calculate-the-pair-wise-distance-if-the-data-is-continuous-we-recommend-to-use-the-function-dist2-as-follows-if-the-data-is-discrete-we-recommend-the-users-to-use">Calculate the pair-wise distance; If the data is continuous, we recommend to use the function "dist2" as follows; if the data is discrete, we recommend the users to use ???""</h2>
+<p>Dist1 = dist2(Data1)
+Dist2 = dist2(Data2)</p>
+<h2 id="next-construct-similarity-graphs">next, construct similarity graphs</h2>
+<p>W1 = affinityMatrix(Dist1, K, alpha)
+W2 = affinityMatrix(Dist2, K, alpha)</p>
+<h2 id="these-similarity-graphs-have-complementary-information-about-clusters">These similarity graphs have complementary information about clusters.</h2>
+<p>p1 = displayClusters(W1,truelabels);
+p2 = displayClusters(W2,truelabels);
+Gadfly.hstack(p1, p2)</p>
+<h2 id="next-we-fuse-all-the-graphs">next, we fuse all the graphs</h2>
+<h2 id="then-the-overall-matrix-can-be-computed-by-similarity-network-fusionsnf">then the overall matrix can be computed by similarity network fusion(SNF):</h2>
+<p>W = SNF([W1,W2], K, T)</p>
+<h2 id="with-this-unified-graph-w-of-size-n-x-n-you-can-do-either-spectral-clustering-or-kernel-nmf-if-you-need-help-with-further-clustering-please-let-us-know">With this unified graph W of size n x n, you can do either spectral clustering or Kernel NMF. If you need help with further clustering, please let us know.</h2>
+<h2 id="for-example-spectral-clustering">for example, spectral clustering</h2>
+<p>C = 2                   # number of clusters
+group = spectralClustering(W, C);   # the final subtypes information</p>
+<h2 id="you-can-evaluate-the-goodness-of-the-obtained-clustering-results-by-calculate-normalized-mutual-information-nmi-if-nmi-is-close-to-1-it-indicates-that-the-obtained-clustering-is-very-close-to-the-true-cluster-information-if-nmi-is-close-to-0-it-indicates-the-obtained-clustering-is-not-similar-to-the-true-cluster-information">you can evaluate the goodness of the obtained clustering results by calculate Normalized mutual information (NMI): if NMI is close to 1, it indicates that the obtained clustering is very close to the "true" cluster information; if NMI is close to 0, it indicates the obtained clustering is not similar to the "true" cluster information.</h2>
+<p>displayClusters(W, group)
+SNFNMI = calNMI(group, truelabel)</p>
+<h2 id="you-can-also-find-the-concordance-between-each-individual-network-and-the-fused-network">you can also find the concordance between each individual network and the fused network</h2>
+<h1 id="concordancematrix-concordancenetworknmilistw-w1w2">ConcordanceMatrix = concordanceNetworkNMI(list(W, W1,W2));</h1>
+<p><code>@docs
+SNFtool.dataset
+SNTtoo.SNF</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/nadavrap/SNFtool.jl/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      <script src="../../assets/mathjaxhelper.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

@@ -36,7 +36,7 @@ function discretisation(eigenVectors)
 end
 
 """
-Discretise a vector, so the maximal position is 1, and the others are 0.
+Discretise matrix, so the maximal position is 1, and the others are 0.
 # Args:
 * eigenVector - A matrix.
 # Returns:

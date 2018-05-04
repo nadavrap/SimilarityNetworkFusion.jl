@@ -1,3 +1,4 @@
+include("discretisation.jl")
 """
 # Implements spectral clustering on given affinity matrix into K clusters.
 #
@@ -33,5 +34,5 @@ function spectralClustering(affinity, K, ctype=3)
     end
     eigDiscrete, continuous = discretisation(U)
     labels = max_inds(eigDiscrete, 1)
-    return labels
+    return vec(labels)
 end

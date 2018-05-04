@@ -24,9 +24,11 @@ function affinityMatrix(diff,K=20,alpha=0.5)
     means = [finiteMean(sortedColumns[i,2:K+1]) for i in 1:N] .+ EPS;
 
     # Outer product
-    Sig = [mean((means[i], means[j])) for j=1:length(means), i=1:length(means)] ./3*2 .+ diff/3 .+ EPS
+    Sig = [mean((means[i], means[j]))
+        for j=1:length(means), i=1:length(means)] ./3*2 .+ diff/3 .+ EPS
     Sig[Sig .<= EPS] .= EPS
-    densities = reshape([pdf(Normal(0, (Sig.*alpha)[i,j]), diff[i,j]) for j in 1:N for i in 1:N], N, N)
+    densities = reshape([pdf(Normal(0, (Sig.*alpha)[i,j]), diff[i,j])
+        for j in 1:N for i in 1:N], N, N)
 
     W = (densities .+ densities') ./ 2
 end

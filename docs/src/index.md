@@ -11,7 +11,7 @@ More text
 
 ```@contents
 Pages = [
-    "tutorials/page1.md",
+    "tutorials/Simulation1.md",
     "tutorials/page2.md",
     "tutorials/page3.md"
     ]

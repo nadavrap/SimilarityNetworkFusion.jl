@@ -4,9 +4,19 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-03</lastmod>
+     <lastmod>2018-05-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>/tutorials/Simulation1/</loc>
+     <lastmod>2018-05-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

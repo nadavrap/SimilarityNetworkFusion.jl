@@ -1,3 +1,5 @@
+include("aff_normalize.jl")
+include("dominateset.jl")
 """
 Similarity Network Fusion takes multiple views of a network (Wall) and
 fuses them together to create a overall affinity matrix.

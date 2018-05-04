@@ -17,8 +17,6 @@ More text
 
 ## Tutorials
 
-
-
 <a id='Another-Section-1'></a>
 
 ## Another Section
@@ -28,5 +26,3 @@ More text
 <a id='Index-1'></a>
 
 ## Index
-
-

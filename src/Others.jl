@@ -6,9 +6,7 @@ Normalize a vector
  A normalize vector, where each component is divided by the sum of elements of
  the vector v.
 """
-function vec_norm(v)
-    v ./ sum(v)
-end
+vec_norm(v) = v ./ sum(v)
 
 """
 Normalize rows in a matrix.
@@ -43,7 +41,9 @@ Mean of elements ignoring infinit (and minus infinit) values.
 ### Returns:
 The mean of the elements.
 """
-finiteMean(x) = mean(x[.!isinf.(x)])
+function finiteMean(x)
+    mean(x[.!isinf.(x)])
+end
 
 """
 Set the elements on the diagnoal to the value.
@@ -53,7 +53,11 @@ Set the elements on the diagnoal to the value.
 ### Returns:
 nothing
 """
-function set_diag!(X, val=0)
+function set_diag!(X, val=0.)
+    if eltype(X) != typeof(val)
+        throw(ErrorException("Type of element of the given matrix does not match the type of
+        the given value"))
+    end
     N = size(X)[1]
     assert(N == size(X)[2]) # Squared matrix
     for i in 1:N
