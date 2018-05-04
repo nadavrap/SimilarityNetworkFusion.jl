@@ -2,12 +2,15 @@
 using SNFtool
 using Base.Test
 
-# write your own tests here
-@test 1 == 1
+tests = ["testSNF",
+         "testOthers"]
 
 tic()
-println("Test SNF functionallity")
+println("Runing tests:")
+for t in tests
+         fp = "$(t).jl"
+         println("* $fp ...")
+         @time @test include(fp)
 @time @test include("testSNF.jl")
-println("Test other functions")
-@time @test include("testOthers.jl.jl")
+@time @test include("testOthers.jl")
 toc()

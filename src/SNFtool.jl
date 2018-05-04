@@ -1,12 +1,13 @@
 module SNFtool
-# Imports
-using CSV, DataFrames, Distributions
-using Gadfly, Cairo
+    # Imports
+    using CSV, DataFrames, Distributions
+    using Gadfly, Cairo
 
-# package code goes here
-EPS = eps(Float64)
+    # package code goes here
+    EPS = eps(Float64)
 
-# Exports
-#SNF
+    # Exports
+    finiteMean
 
+    include("Others.jl")
 end # module

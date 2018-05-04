@@ -2,9 +2,9 @@
 Similarity Network Fusion takes multiple views of a network (Wall) and
 fuses them together to create a overall affinity matrix.
 ### Args:
-    * Wall: List of matrices, each element is a square symmetric affinity matrix.
-    * K: Number of neighbors used in the K-nearest neighbours step
-    * t: Number of iterations for the diffusion process
+ * Wall: List of matrices, each element is a square symmetric affinity matrix.
+ * K: Number of neighbors used in the K-nearest neighbours step
+ * t: Number of iterations for the diffusion process
 ### Returns:
 Unified similarity graph of all data types in Wall.
 """

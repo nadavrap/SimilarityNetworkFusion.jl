@@ -1,2 +1,3 @@
+println("Test SNF functionallity")
 
-return true
+@test true
