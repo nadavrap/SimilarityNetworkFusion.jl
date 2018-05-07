@@ -56,9 +56,9 @@ displayClusters(WSNF, group)
 ## you can also find the concordance between each individual network and the fused network
 
 #ConcordanceMatrix = concordanceNetworkNMI(list(W, W1,W2));
-
+```
 
 ```@docs
 SNFtool.dataset
-SNTtoo.SNF
+SNFtool.SNF
 ```
