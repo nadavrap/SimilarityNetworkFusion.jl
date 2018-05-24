@@ -1,4 +1,4 @@
-module SNFtool
+module SimilarityNetworkFusion
     # Imports
     using CSV, DataFrames, Distributions
     using Gadfly, Cairo
