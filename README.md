@@ -1,4 +1,4 @@
-# SNFtool
+# SimilarityNetworkFusion
 This is an implementation of the Similarity Network Fusion (SNF) method ([Want et. al, Nature Methods 2014][1]) in Julia. This is not an official
 implementation, as I'm not part of the authors of the paper. But, I followed
 the implementation provided by the authors in R and translated it to Julia.

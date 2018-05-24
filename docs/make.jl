@@ -1,6 +1,6 @@
-using Documenter, SNFtool
+using Documenter, SimilarityNetworkFusion
 
-makedocs(modules=[SNFtool],
+makedocs(modules=[SimilarityNetworkFusion],
         doctest=true)
 
 deploydocs(deps   = Deps.pip("mkdocs", "python-markdown-math"),

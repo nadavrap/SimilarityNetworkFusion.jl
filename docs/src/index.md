@@ -1,4 +1,4 @@
-#Documentation for SNFtool.jl package
+#Documentation for SimilarityNetworkFusion.jl package
 
 This is an implementation of the Similarity Networks Fusion (SNF) method published by Wang et. al. in
 Nature Methods 2014
