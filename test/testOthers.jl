@@ -1,5 +1,5 @@
 using Base.Test
-using SimilarityNetworkFusion
+#using SimilarityNetworkFusion
 
 include("../src/Others.jl")
 
