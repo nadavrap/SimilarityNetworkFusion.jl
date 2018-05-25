@@ -14,6 +14,6 @@ for t in tests
          #@time @test include(fp)
          include(fp)
 end
-@time @test include("SimilarityNetworkFusion.jl")
+@time @test include("testSNF.jl")
 @time @test include("testOthers.jl")
 toc()
