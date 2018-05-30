@@ -3,6 +3,8 @@ This is an implementation of the Similarity Network Fusion (SNF) method ([Want e
 implementation, as I'm not part of the authors of the paper. But, I followed
 the implementation provided by the authors in R and translated it to Julia.
 
+[![Build Status](https://travis-ci.org/nadavrap/SimilarityNetworkFusion.jl.svg?branch=master)](https://travis-ci.org/nadavrap/SimilarityNetworkFusion.jl)
+
 # Tutorials
 * [Simulation1](docs/build/tutorials/Simulation1.md)
 * [Lung](docs/build/tutorials/Lung.md)
