@@ -1,3 +1,6 @@
+using Statistics
+using DataFrames
+
 """
 Normalize a vector
 ### Parameters:
@@ -13,7 +16,7 @@ Normalize rows in a matrix.
 Given a matrix, normalize each row seperately by dividing each element by the
 sum of elements in the row.
 """
-row_normalize(X) = mapslices(vec_norm,X,2)
+row_normalize(X) = mapslices(vec_norm,X,dims=2)
 
 """
 Test whether all the elements in the vector are the same
@@ -59,7 +62,7 @@ function set_diag!(X, val=0.)
         the given value"))
     end
     N = size(X)[1]
-    assert(N == size(X)[2]) # Squared matrix
+    @assert(N == size(X)[2]) # Squared matrix
     for i in 1:N
         X[i,i]=val
     end
@@ -80,7 +83,7 @@ function standardize(v)
     if (sdv == 0)
         sdv = 1
     end
-    (v.-mean(v))./sdv
+    (v .- mean(v)) ./ sdv
 end
 
 """
@@ -92,9 +95,12 @@ Apply a function to each column of a DataFrame.
     A matrix where the function func was applyied to each column of df.
 """
 function sapply_df(df, func)
-    v = colwise(func,df)
+    # v = colwise(func,df)
+    # v = mapslices(func, df, dims=1)
+    v = aggregate(df, func)
     #DataFrame(eltype(v[1])[el[1] for el in v])
-    hcat([v[i][1] for i in 1:size(v)[1]]...)
+    # hcat([v[i][1] for i in 1:size(v)[1]]...)
+    convert(Matrix, v)
 end
 
 """

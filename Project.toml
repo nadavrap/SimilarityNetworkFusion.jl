@@ -2,16 +2,19 @@ name = "SimilarityNetworkFusion"
 uuid = "6c1fd854-37c7-5216-bfd6-aad91993916b"
 
 [deps]
+BinDeps = "9e28174c-4ba2-5203-b857-d8d62c4213ee"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-Cairo = "159f3aea-2a34-519c-b102-8c37f9878175"
+Compat = "34da2185-b29b-5c13-b0c7-acf172513d20"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 Gadfly = "c91e804a-d5a3-530f-b6f0-dfbca275c004"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
 CSV = "≥ 0.5.11"
-Cairo = "≥ 0.6.0"
 DataFrames = "≥ 0.19.3"
 Distributions = "≥ 0.21.1"
 Gadfly = "≥ 1.0.1"

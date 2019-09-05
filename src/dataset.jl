@@ -1,4 +1,5 @@
 using CSV
+using Printf # for @sprintf
 
 """
 Load a data set from package.
@@ -19,7 +20,8 @@ function dataset(name)
     else
         files = readdir(datadir)
         if name == "Simulation1"
-            return [CSV.read(joinpath(datadir, fname), delim=' ', nullable=false) for fname in files]
+            #return [CSV.read(joinpath(datadir, fname), delim=' ', nullable=false) for fname in files]
+            return [CSV.read(joinpath(datadir, fname), delim=' ') for fname in files]
         else
             data = [readdlm(joinpath(datadir,fname), header=true)[1] for fname in files if !endswith(fname, "_Survival.csv")]
             outcomes = [readdlm(joinpath(datadir,fname), header=true)[1] for fname in files if endswith(fname, "_Survival.csv")][1]

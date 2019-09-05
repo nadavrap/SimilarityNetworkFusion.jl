@@ -9,12 +9,12 @@ A squared simetric matrix of size size(X)[1].
 """
 function dist2(X)
     n = size(X)[1]
-    sumsqX = sum(X.^2, 2) # Rows sums
+    sumsqX = sum(X .^ 2, dims=2) # Rows sums
 
     XX = 2 * (X * X')
     # Repeat rows + repeat columns
     res = repeat(sumsqX, outer=[1,n]) +
             repeat(sumsqX, outer=[1,n])' - XX
-    res[res .< 0] = 0
+    res[res .< 0] .= 0
     res
 end

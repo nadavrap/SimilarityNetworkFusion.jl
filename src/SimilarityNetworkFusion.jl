@@ -1,9 +1,10 @@
 module SimilarityNetworkFusion
     # Imports
     using CSV, DataFrames, Distributions
-    using Gadfly, Cairo, LinearAlgebra
+    using Gadfly, LinearAlgebra
+    #using Cairo
 
-    import Base: getindex
+    # import Base: getindex
     # package code goes here
     EPS = eps(Float64)
 

@@ -1,3 +1,5 @@
+using PyPlot
+
 """
 Visualizes the specified clusters in an affinity matrix
 # Args:

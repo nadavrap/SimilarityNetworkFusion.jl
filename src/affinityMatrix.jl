@@ -12,7 +12,7 @@ Computes the affinity matrix for a given distance matrix
 """
 function affinityMatrix(diff,K=20,alpha=0.5)
     N = size(diff)[1]
-    assert(K < N)
+    @assert(K < N)
 
     diff = (diff + diff') ./ 2
     set_diag!(diff) # Zeroize the diagnal
