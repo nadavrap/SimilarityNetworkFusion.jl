@@ -14,7 +14,7 @@ function aff_normalize(X)
     row_sum_mdiag = mapslices(sum,X,2) .- diag(X)
     #If rowSumx(X) == diag(X), set row.sum.mdiag to 1 to avoid div by zero
     row_sum_mdiag[row_sum_mdiag .== 0] = 1
-    X = X./(2.*row_sum_mdiag)
+    X = X ./ (2 .* row_sum_mdiag)
     set_diag!(X, 0.5)
     X
 end

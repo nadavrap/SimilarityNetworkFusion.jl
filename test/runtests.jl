@@ -1,7 +1,8 @@
 #!julia
-include("../src/SimilarityNetworkFusion.jl")
-#using SimilarityNetworkFusion
-using Base.Test
+using SimilarityNetworkFusion, Test
+# include("../src/SimilarityNetworkFusion.jl")
+# #using SimilarityNetworkFusion
+# using Base.Test
 
 tests = []#["testSNF",
           #"testOthers"]

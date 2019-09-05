@@ -103,8 +103,8 @@ If dim=1 returned value has the length of size(A)[1]
 dim=1 for rows' maximums, and 2 for columns' maximums.
     # Args:
     * A - Matrix
-    * dim - The dimenssion on which to evaluate. dim=1 (default) returns \
-     the index of column with maximal value.
+    * dim - The dimenssion on which to evaluate. dim=1 (default) returns
+    the index of column with maximal value.
 # Returns:
 A vector
 """

@@ -20,10 +20,10 @@ function spectralClustering(affinity, K, ctype=3)
     if ctype == 1
         NL = L
     elseif ctype == 2
-        Di = Diagonal(1./d)
+        Di = Diagonal(1 ./d)
         NL = Di * L
     elseif (ctype == 3)
-        Di = Diagonal(1./sqrt.(d))
+        Di = Diagonal(1 ./sqrt.(d))
         NL = Di * L * Di
     end
     eg = eigfact(NL)

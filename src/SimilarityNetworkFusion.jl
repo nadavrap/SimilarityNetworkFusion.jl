@@ -1,7 +1,7 @@
 module SimilarityNetworkFusion
     # Imports
     using CSV, DataFrames, Distributions
-    using Gadfly, Cairo
+    using Gadfly, Cairo, LinearAlgebra
 
     import Base: getindex
     # package code goes here
