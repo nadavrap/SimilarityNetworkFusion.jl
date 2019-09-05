@@ -11,7 +11,8 @@ diagonal.
 A normalized matrix.
 """
 function aff_normalize(X)
-    row_sum_mdiag = mapslices(sum,X,2) .- diag(X)
+    # row_sum_mdiag = mapslices(sum,X,dims=2) .- diag(X)
+    row_sum_mdiag = mapslices(sum,X,dims=2) .- X[I(size(X)[1])]
     #If rowSumx(X) == diag(X), set row.sum.mdiag to 1 to avoid div by zero
     row_sum_mdiag[row_sum_mdiag .== 0] = 1
     X = X ./ (2 .* row_sum_mdiag)
