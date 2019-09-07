@@ -1,4 +1,5 @@
-using PyPlot
+# using PyPlot
+using Gadfly
 
 """
 Visualizes the specified clusters in an affinity matrix

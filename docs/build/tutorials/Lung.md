@@ -13,6 +13,7 @@
 ## Install the package
 Pkg.add("SimilarityNetworkFusion")
 using SimilarityNetworkFusion
+using DataFrames
 
 ## First, set all the parameters:
 K = 20;		# number of neighbors, usually (10~30)

@@ -102,19 +102,3 @@ function sapply_df(df, func)
     # hcat([v[i][1] for i in 1:size(v)[1]]...)
     convert(Matrix, v)
 end
-
-"""
-Return the index of maximum for each row/column
-If dim=1 returned value has the length of size(A)[1]
-dim=1 for rows' maximums, and 2 for columns' maximums.
-    # Args:
-    * A - Matrix
-    * dim - The dimenssion on which to evaluate. dim=1 (default) returns
-    the index of column with maximal value.
-# Returns:
-A vector
-"""
-function max_inds(A, dim=1)
-    vals, inds = findmax(A', dim)
-    map(x->ind2sub(A', x)[dim], inds)
-end

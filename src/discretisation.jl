@@ -13,7 +13,8 @@ function discretisation(eigenVectors)
   c = zeros(n)
   for j in 2:k
     c = c + abs.(eigenVectors * R[:,j-1])
-    i = indmin(c)
+    # Index of minimal value
+    i = findmin(c)[2]
     R[:,j] = eigenVectors[i,:]'
   end
 
@@ -45,9 +46,11 @@ A discrete matrix where for each row, all elements are zeros except one element
 """
 function discretisationEigenVectorData(eigenVector)
   Y = zeros(size(eigenVector))
-  j = max_inds(eigenVector,1)
-  for i in 1:(size(eigenVector)[1])
-      Y[i,j[i]]=1
-  end
+  vals, inds = findmax(eigenVector, dims=2)
+  # j = max_inds(eigenVector,1)
+  # for i in 1:(size(eigenVector)[1])
+  #     Y[i,j[i]]=1
+  # end
+  Y[inds] .= 1
   return Y
 end

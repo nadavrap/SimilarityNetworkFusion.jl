@@ -13,7 +13,7 @@ function dominateset(xx,KK=20)
         # Zeroize the lowest values in the vector x,
         # leaving the top KK untacted
         s = sortperm(x)
-        x[s[1:(length(x)-KK)]] = 0
+        x[s[1:(length(x)-KK)]] .= 0
         x
     end
 

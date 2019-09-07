@@ -22,7 +22,7 @@ function SNF(Wall, K=20, t=20)
     Ps = deepcopy(Wall)
     for i in 1:LW
       Wall[i] = aff_normalize(Wall[i])
-      Wall[i] = (Wall[i] + Wall[i]')./2
+      Wall[i] = (Wall[i] + Wall[i]') ./ 2
     end
 
     ### Calculate the local transition matrix. (KNN step)

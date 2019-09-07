@@ -29,4 +29,5 @@ X2 = reshape([0.,1,1,1,0,0,0,0,1], 3,3)
 @test allequal((1,0)) == false
 @test allequal((1.3,0)) == false
 @test allequal(('a', 'a', 'a')) == true
+
 true

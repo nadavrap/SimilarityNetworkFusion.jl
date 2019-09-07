@@ -11,28 +11,30 @@ include("discretisation.jl")
 #   labels: A vector of length N assigning a label 1:K to each sample
 """
 function spectralClustering(affinity, K, ctype=3)
-    d = mapslices(sum, affinity, 2)
+    d = mapslices(sum, affinity, dims=2)
     # d is has second dimension of length 1, so remove it:
     d = vec(d)
-    d[d .== 0] = EPS
+    d[d .== 0] .= EPS
     D = Diagonal(d)
     L = D - affinity
     if ctype == 1
         NL = L
     elseif ctype == 2
-        Di = Diagonal(1 ./d)
+        Di = Diagonal(1 ./ d)
         NL = Di * L
     elseif (ctype == 3)
-        Di = Diagonal(1 ./sqrt.(d))
+        Di = Diagonal(1 ./ sqrt.(d))
         NL = Di * L * Di
     end
-    eg = eigfact(NL)
-    res = sortperm(abs.(eg[:values]))
-    U = eg[:vectors][:,res[1:K]]
+    eg = eigen(NL)
+    res = sortperm(abs.(eg.values))
+    U = eg.vectors[:,res[1:K]]
     if ctype == 3
         U = sapply_df(DataFrame(U'), normalize_sqrt)'
     end
     eigDiscrete, continuous = discretisation(U)
-    labels = max_inds(eigDiscrete, 1)
-    return vec(labels)
+    # labels = max_inds(eigDiscrete, 1)
+    vals, inds = findmax(eigDiscrete, dims=2)
+    # return vec(labels)
+    return vec([i[2] for i in inds])
 end

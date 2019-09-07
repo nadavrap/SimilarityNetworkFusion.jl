@@ -1,5 +1,6 @@
 using CSV
 using Printf # for @sprintf
+using DelimitedFiles # for readdlm
 
 """
 Load a data set from package.
