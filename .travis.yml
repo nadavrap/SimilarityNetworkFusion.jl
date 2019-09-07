@@ -28,7 +28,9 @@ git:
 ## uncomment the following lines to override the default test script
 script:
 #  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'Pkg.clone(pwd())'
+  - julia -e 'using Pkg'
+  - julia -e 'Pkg.build(; verbose = true)' # for Julia 1.1 and up
+  - julia -e 'Pkg.test(coverage=true)'
   - julia -e 'Pkg.test("SimilarityNetworkFusion.jl",coverage=true)'
 after_success:
   - julia -e julia -e 'Pkg.add("Documenter")'
