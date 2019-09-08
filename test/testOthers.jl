@@ -1,4 +1,4 @@
-using Base.Test, LinearAlgebra
+using LinearAlgebra
 #using SimilarityNetworkFusion
 
 include("../src/Others.jl")
